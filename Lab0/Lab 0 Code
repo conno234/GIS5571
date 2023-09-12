@@ -27,4 +27,4 @@ item
 
 
 from arcgis import features
-features.use_proximity.create_buffers(input_layer=item, distances=[200], units='Meters', dissolve_type='Dissolve', output_name='lake_county_buffer_v3',end_type='Round')
+features.use_proximity.create_buffers(input_layer=item, distances=[200], units='Meters', dissolve_type='Dissolve', output_name='network_buffer',end_type='Round')
