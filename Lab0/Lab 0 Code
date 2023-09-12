@@ -1,0 +1,29 @@
+#Code for buffering data in a ArcGIS Pro Notebook
+
+import arcpy
+arcpy.env.workspace = r'C:\Users\conno234\Desktop\Lab 0 GIS 5571'
+
+out_feature_class = "buffer_roads"
+buffer_distance_or_field = "200 Meters" 
+line_side = "FULL"
+line_end_type = "ROUND"
+
+arcpy.analysis.Buffer(
+    in_features,
+    out_feature_class,
+    buffer_distance_or_field,
+    line_side,
+    line_end_type,
+    dissolve_option
+
+#Code for buffering data in ArcGIS Online Notebook
+from arcgis.gis import GIS
+gis = GIS("home")
+
+# Item Added From Toolbar
+# Title: shp_trans_road_centerlines_proper | Type: Feature Service | Owner: conno234_UMN
+item = gis.content.get("73c520504dc645358b4aac8202f8dd19")
+item
+
+from arcgis import features
+features.use_proximity.create_buffers(input_layer=item, distances=[1], units='Miles', dissolve_type='Dissolve', output_name='lake_county_buffer_v3',end_type='Round')
