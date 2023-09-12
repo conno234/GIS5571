@@ -21,9 +21,10 @@ from arcgis.gis import GIS
 gis = GIS("home")
 
 # Item Added From Toolbar
-# Title: shp_trans_road_centerlines_proper | Type: Feature Service | Owner: conno234_UMN
+# Title shp_trans_hi_frequency_transit| Type: Feature Service | Owner: conno234_UMN
 item = gis.content.get("73c520504dc645358b4aac8202f8dd19")
 item
 
+
 from arcgis import features
-features.use_proximity.create_buffers(input_layer=item, distances=[1], units='Miles', dissolve_type='Dissolve', output_name='lake_county_buffer_v3',end_type='Round')
+features.use_proximity.create_buffers(input_layer=item, distances=[200], units='Meters', dissolve_type='Dissolve', output_name='lake_county_buffer_v3',end_type='Round')
